@@ -1,13 +1,9 @@
-var express = require('express');
-var app = express();
+var http = require("http");
 
-      app.get('/', function (req, res) {
-            console.log('ready');
-            res.send('Hello World!');
-      });
-      
-      app.listen(80, function () {
-            
-            console.log('app listening port 80');
-      
-      });
+http.createServer(function (request, response) {
+   response.writeHead(200, {'Content-Type': 'text/plain'});
+   response.end('Hello World\n');
+}).listen(80);
+
+// Console will print the message
+console.log('Server running at http://')
